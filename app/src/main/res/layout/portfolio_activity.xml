@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/view_effect"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="@string/symbol"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_weight="0.2"
+            android:text="@string/quantity"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/priceavg"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="Price"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="@string/interest"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/content_text_size" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/interestList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/grey"
+        android:dividerHeight="2dp">
+
+    </ListView>
+</LinearLayout>

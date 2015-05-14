@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/view_effect"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/symbol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:paddingLeft="15dp"
+            android:text="@string/symbol"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="@string/transctionType"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="@string/quantity"
+            android:textSize="@dimen/content_text_size" />
+
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="end"
+            android:paddingRight="15dp"
+            android:text="@string/cost"
+            android:textSize="@dimen/content_text_size" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp">
+
+        <TextView
+            android:id="@+id/portfolioName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:paddingLeft="25dp"
+            android:text="@string/portfolioName"
+            android:textSize="@dimen/content_text_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4sp"
+            android:layout_weight="0.1"
+            android:src="@drawable/icn_clock_open" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:text="@string/time"
+            android:textSize="@dimen/content_text_size" />
+
+    </TableRow>
+
+</TableLayout>
+

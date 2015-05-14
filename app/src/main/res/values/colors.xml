@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="drawer_pressed">#dad6d9</color>
+    <color name="text_color">#ffffff</color>
+    <color name="up_arrow">#00e122</color>
+    <color name="down_arrow">#ff0b11</color>
+    <color name="grey">#eeeeee</color>
+    <color name="blue">#2196F3</color>
+    <color name="shadow1">#10cccccc</color>
+    <color name="shadow2">#20cccccc</color>
+    <color name="shadow3">#30cccccc</color>
+</resources>

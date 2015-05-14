@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\Informatics\Android\AndroidstudioProjects\Stockmarket-master\MaterialDesign\assets"><file name="sprite_check.png" path="F:\Informatics\Android\AndroidstudioProjects\Stockmarket-master\MaterialDesign\assets\sprite_check.png"/></source></dataSet><dataSet config="release"><source path="F:\Informatics\Android\AndroidstudioProjects\Stockmarket-master\MaterialDesign\src\release\assets"/></dataSet></merger>
