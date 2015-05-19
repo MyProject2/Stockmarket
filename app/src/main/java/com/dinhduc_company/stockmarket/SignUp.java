@@ -35,15 +35,15 @@ public class SignUp extends Activity {
         setContentView(R.layout.sign_up);
 
         //=========== find view id  ===========
-        edit_username = (EditText)findViewById(R.id.edit_username);
-        edit_password = (EditText)findViewById(R.id.edit_password);
-        edit_email = (EditText)findViewById(R.id.edit_email);
-        radioGroup = (RadioGroup)findViewById(R.id.radGroup);
-        radMale = (RadioButton)findViewById(R.id.male);
-        radFemale = (RadioButton)findViewById(R.id.female);
-        imageViewUser = (ImageView)findViewById(R.id.imageViewUser);
-        imageViewPass = (ImageView)findViewById(R.id.imageViewPass);
-        imageViewEmail = (ImageView)findViewById(R.id.imageViewEmail);
+        edit_username = (EditText) findViewById(R.id.edit_username);
+        edit_password = (EditText) findViewById(R.id.edit_password);
+        edit_email = (EditText) findViewById(R.id.edit_email);
+        radioGroup = (RadioGroup) findViewById(R.id.radGroup);
+        radMale = (RadioButton) findViewById(R.id.male);
+        radFemale = (RadioButton) findViewById(R.id.female);
+        imageViewUser = (ImageView) findViewById(R.id.imageViewUser);
+        imageViewPass = (ImageView) findViewById(R.id.imageViewPass);
+        imageViewEmail = (ImageView) findViewById(R.id.imageViewEmail);
 
         //========
 
@@ -51,13 +51,13 @@ public class SignUp extends Activity {
     }
 
     //=========  set listener for button sign up ==============
-    public void onClickSignUp(View v){
+    public void onClickSignUp(View v) {
         boolean checkUser = checkUsername();
         boolean checkPass = checkPassword();
         boolean checkEmail = checkEmail();
         //===== get gender =====
         int isCheck = radioGroup.getCheckedRadioButtonId();
-        switch (isCheck){
+        switch (isCheck) {
             case R.id.male:
                 gender = "Male";
                 break;
@@ -69,10 +69,10 @@ public class SignUp extends Activity {
                 break;
         }
 
-        if(checkUser && checkPass && checkEmail){
+        if (checkUser && checkPass && checkEmail) {
             DBUsers dbUsers = new DBUsers(this);
             dbUsers.open();
-            dbUsers.insertUser(username,password, email, gender, 0, 0);
+            dbUsers.insertUser(username, password, email, gender, 0, 0);
             dbUsers.close();
 
             DBStock dbStock = new DBStock(this, username);
@@ -82,7 +82,8 @@ public class SignUp extends Activity {
             Toast.makeText(this, "Register successful", Toast.LENGTH_SHORT)
                     .show();
 
-            Intent i = new Intent(getBaseContext(),Login.class);
+            Intent i = new Intent(getBaseContext(), Login.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
         }
@@ -90,16 +91,15 @@ public class SignUp extends Activity {
     }
 
     //==========  check username  ==============
-    public boolean checkUsername(){
+    public boolean checkUsername() {
         boolean result = false;
         username = edit_username.getText().toString();
-        if(username.equals("")){
+        if (username.equals("")) {
             display(imageViewUser, 0);
-        }
-        else{
-            if(searchUser(username)){
+        } else {
+            if (searchUser(username)) {
                 display(imageViewUser, 0);
-            }else{
+            } else {
                 display(imageViewUser, 1);
                 result = true;
             }
@@ -108,12 +108,12 @@ public class SignUp extends Activity {
     }
 
     //===========  check password  ==============
-    public boolean checkPassword(){
+    public boolean checkPassword() {
         boolean result = false;
         password = edit_password.getText().toString();
-        if(password.equals("")){
+        if (password.equals("")) {
             display(imageViewPass, 0);
-        }else{
+        } else {
             display(imageViewPass, 1);
             result = true;
         }
@@ -121,15 +121,15 @@ public class SignUp extends Activity {
     }
 
     //============ check email  ===============
-    public boolean checkEmail(){
+    public boolean checkEmail() {
         boolean result = false;
         email = edit_email.getText().toString();
-        if(email.equals("")){
+        if (email.equals("")) {
             display(imageViewEmail, 0);
-        }else{
-            if(searchEmail(email)){
+        } else {
+            if (searchEmail(email)) {
                 display(imageViewEmail, 0);
-            }else{
+            } else {
                 display(imageViewEmail, 1);
                 result = true;
             }
@@ -138,18 +138,18 @@ public class SignUp extends Activity {
     }
 
     //=========  search database  return true if user exist into database ==================
-    public boolean searchUser(String username){
+    public boolean searchUser(String username) {
         boolean result = false;
         DBUsers db = new DBUsers(this);
         db.open();
         Cursor cursor = db.getAllUsers();
-        if(cursor.moveToFirst()){
-            do{
-                if(cursor.getString(1).equals(username)){
+        if (cursor.moveToFirst()) {
+            do {
+                if (cursor.getString(1).equals(username)) {
                     result = true;
                     break;
                 }
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
        /* if(db.getUser(username)==null){
             result = false;
@@ -159,25 +159,25 @@ public class SignUp extends Activity {
     }
 
     //========== search database    return true if email exist into database ==============
-    public boolean searchEmail(String email){
+    public boolean searchEmail(String email) {
         boolean result = false;
         DBUsers db = new DBUsers(this);
         db.open();
         Cursor cursor = db.getAllUsers();
-        if(cursor.moveToFirst()){
-            do{
-                if(cursor.getString(3).equals(email)){
+        if (cursor.moveToFirst()) {
+            do {
+                if (cursor.getString(3).equals(email)) {
                     result = true;
                     break;
                 }
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         db.close();
         return result;
     }
 
     //=========  display image view true or false =================
-    public void display(ImageView imageView, int a){
+    public void display(ImageView imageView, int a) {
         imageView.setVisibility(View.VISIBLE);
         imageView.setImageResource(image[a]);
     }

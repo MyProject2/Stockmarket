@@ -37,7 +37,6 @@ public class Login extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), SignUp.class);
                 startActivity(i);
-                finish();
             }
         });
 

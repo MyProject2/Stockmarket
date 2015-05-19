@@ -6,6 +6,7 @@ import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
@@ -19,6 +20,8 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonFloat;
 
@@ -39,11 +42,14 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     ButtonFloat buttonFloat;
     ProgressDialog progressDialog;
+    boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -120,7 +126,7 @@ public class MainActivity extends ActionBarActivity
     public void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(mTitle);
-        builder.setMessage("Copyright by V.I.P\nNguyen Dinh Duc\nVu Xuan Huy\nTran Quang Duy");
+        builder.setMessage("Copyright by D.H.D.T\nNguyen Dinh Duc\nVu Xuan Huy\nTran Quang Duy\nNguyen Ngoc Thinh");
         builder.setIcon(R.drawable.about_us);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -240,6 +246,29 @@ public class MainActivity extends ActionBarActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (flag == true) {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    flag = false;
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    flag = true;
+                }
+            }).start();
+        } else {
+            super.onBackPressed();
+
+        }
+    }
+
 
     private class UpdateTask extends AsyncTask<Void, Void, Void> {
 

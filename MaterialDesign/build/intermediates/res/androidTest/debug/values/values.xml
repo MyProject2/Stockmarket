@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/F:/Informatics/Android/AndroidstudioProjects/Stockmarket-master/MaterialDesign/build/intermediates/bundles/debug/res/values/values.xml -->
+    <!-- From: file:/F:/Informatics/Android/AndroidstudioProjects/Stockmarket/MaterialDesign/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <color name="green">#00FF00</color>
     <color name="thumbColor">#66aaaaaa</color>

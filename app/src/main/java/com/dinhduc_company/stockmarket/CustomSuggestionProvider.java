@@ -46,7 +46,7 @@ public class CustomSuggestionProvider extends SearchRecentSuggestionsProvider {
             do {
                 customCursor.addRow(new Object[]{
                         null,
-                        R.drawable.ic_action_search,
+                        R.drawable.ic_action_search1,
                         c.getString(c.getColumnIndex(DBUsers.KEY_SYMBOL)),
                         c.getString(c.getColumnIndex(DBUsers.KEY_SYMBOL)),
                         i++

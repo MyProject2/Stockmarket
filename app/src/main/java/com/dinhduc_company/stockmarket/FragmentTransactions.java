@@ -203,7 +203,7 @@ public class FragmentTransactions extends Fragment {
             }
         } else {
             if (type.equals("BUY")) {
-                average = calculateBuyAverage(c);
+                average = getTwoDigit(calculateBuyAverage(c));
                 interest = getTwoDigit((priceMarket - average) / average * 100);
                 dbStock.updatePorfolio(tableName, symbol, quantity + c.getInt(c.getColumnIndex(DBStock.KEY_QUANTITY))
                         , average, priceMarket, interest);
@@ -256,10 +256,10 @@ public class FragmentTransactions extends Fragment {
             int quantity = 0;
             do {
                 quantity = c.getInt(c.getColumnIndex(DBStock.KEY_QUANTITY));
-                investingMoneyPortfolio += quantity * c.getDouble(c.getColumnIndex(DBStock.KEY_AVERAGEPURCHASE));
-                totalMoneyPortfolio += quantity * c.getDouble(c.getColumnIndex(DBStock.KEY_COST));
+                investingMoneyPortfolio += getTwoDigit(quantity * c.getDouble(c.getColumnIndex(DBStock.KEY_AVERAGEPURCHASE)));
+                totalMoneyPortfolio += getTwoDigit(quantity * c.getDouble(c.getColumnIndex(DBStock.KEY_COST)));
             } while (c.moveToNext());
-            return (double) Math.round(((totalMoneyPortfolio - investingMoneyPortfolio) / investingMoneyPortfolio * 100) * 100) / 100;
+            return getTwoDigit(((totalMoneyPortfolio - investingMoneyPortfolio) / investingMoneyPortfolio * 100));
         }
         return 0;
     }
